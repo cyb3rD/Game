@@ -1,0 +1,29 @@
+/* Custom CSS */
+body {
+	background: transparent;
+}
+
+p {
+	color: white;
+}
+
+h4 {
+	color: white;
+}	
+
+.full {
+    background: url('../img/bg3.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+img {
+	height: 100px;
+}
+
+img.player-logo {
+  min-height: 100px;
+  /*min-width: 50px;*/
+}
