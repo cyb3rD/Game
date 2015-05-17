@@ -1,5 +1,16 @@
 {% extends "Field.html" %}
 {% block Ai %}
-
+<!-- Аватар (Ai)-->	
+<section id="Ai-logo" class="col-xs-2" >
+	<img class="player-logo" src="{{ url_for('static', filename='img/p1_avatar.png') }}">
+</section>
+<!-- Сведения об игроке (Ai)-->		   	
+<section id="Ai-info" class="col-xs-2" >
+	<p>Computer(Ai)</p>
+	<p>Coins:</p>
+	<p>Health:</p>
+	<p>Damage:</p>
+	<p>Defense:</p>
+</section>
 
 {% endblock %}
