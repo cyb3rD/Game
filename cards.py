@@ -7,7 +7,7 @@ class Card(object):
 	HEAL = ["1", "2", "3", "4", "5", "6", "7", "8", "10"]
 	DAMAGE = ["1", "2", "3", "4", "5", "7", "8"]
 	DEFENCE = ["true", "false"]
-	def __init__(self, type, name, price, heal, damage, degence):
+	def __init__(self, types, name, price, heal, damage, defence):
 		self.types = types
 		self.name = name
 		self.price = price
@@ -93,15 +93,21 @@ class Pack(object):
 			for card in self.cards:
 				rep += str(card) + " "
 		else:
-			rep = "В колоде больше нет карт."
+			rep = "В колоде нет карт."
 		return rep
-	def create(self, types, name, price, heal, damage,defence):
-		self.cards = []
-		self.add(Card(types, name, price, heal, damage,defence))
-	def add(self):
-		self.cards = []
-		self.cards = reset.shuffle()
+	def create(self, types, name, price, heal, damage, defence):
+		self.cards.append(Card(types, name, price, heal, damage, defence))
 
+class Player(object):
+	name = ""
+	healt = 30
+	damage = 0
+	def __init__(self, name, healt, damage):
+		self.name = name
+		self.healt = healt
+		self.damage = damage
+	
+	
 if __name__ == "__main__":
 	print("Вы запустили этот модуль напрямую, а не импортировали его.")
 	input("\n\nНажмите Enter чтобы выйти.")
