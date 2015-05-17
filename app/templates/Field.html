@@ -19,40 +19,10 @@
 	   <section id="body"  class="container">
 		   
 		   <div class="row">
-		   <!-- Computer (AI) Info-->
-		   {% block Ai %}{% endblock %}
-		   	
-		   	
-		   	<section id="player1-cards">
-		   		<div  class="col-xs-1">
-		   			<!-- AI Cards-->
-		   			<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
-		   			<p>AiHand_1</p>
-	   			</div>
-		   		<div  class="col-xs-1">
-		   			<img src="{{ url_for('static', filename='img/card_back.jpg') }}">	
-		   			<p>AiHand_2</p>
-		   		</div>
-		   		<div  class="col-xs-1">
-		   			<img src="{{ url_for('static', filename='img/card_back.jpg') }}">	
-		   			<p>AiHand_3</p>
-		   		</div>
-		   		<div  class="col-xs-1">
-		   			<img src="{{ url_for('static', filename='img/card_back.jpg') }}">	
-		   			<p>AiHand_4</p>
-		   		</div>
-		   		<div  class="col-xs-1">
-		   			<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
-		   			<p>AiHand_5</p>
-
-		   		</div>
-		   		<div  class="col-xs-3">
-		   			<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
-		   			<p>СБРОС(Ai)</p>
-		   		</div>
-		   	<!-- player1-cards -->	
-		   	</section>
-		   	<!-- Player1 -->
+		   <!-- (AI) Статус -->
+		   {% include 'Ai.html' %}
+		   <!-- (AI) Рука -->	
+		   {% include 'AiHand.html' %}
 		   </div>
 		   
 		   <!-- Player 1 Table -->

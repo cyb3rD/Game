@@ -37,7 +37,7 @@ def index():
 
 	# Вывод основных параметров/свойств игрока
 	# Рабочий вариант без разделения шаблонов
-	return render_template("game.html", damage = PlayerCard.getDamage())
+	# return render_template("game.html", damage = PlayerCard.getDamage())
 
 	# Использование разделдения шаблонов
-	return render_template("Field.html", damage = PlayerCard.getDamage())
+	return render_template("Field.html")

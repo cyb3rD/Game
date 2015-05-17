@@ -1,5 +1,30 @@
-{% extends "Field.html" %}
-{% block AiHand %}
+<!-- Рука Ai -->			   	
+<section id="Ai-cards">
+	<!-- Карты в руке-->
+	<div  class="col-xs-1">
+		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
+		<p>AiHand_1</p>
+	</div>
+	<div  class="col-xs-1">
+		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">	
+		<p>AiHand_2</p>
+	</div>
+	<div  class="col-xs-1">
+		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">	
+		<p>AiHand_3</p>
+	</div>
+	<div  class="col-xs-1">
+		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">	
+		<p>AiHand_4</p>
+	</div>
+	<div  class="col-xs-1">
+		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
+		<p>AiHand_5</p>
 
-
-{% endblock %}
+	</div>
+	<!-- Сброс-->
+	<div  class="col-xs-3">
+		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
+		<p>СБРОС(Ai)</p>
+	</div>
+</section>
