@@ -39,5 +39,5 @@ def index():
 	# Рабочий вариант без разделения шаблонов
 	# return render_template("game.html", damage = PlayerCard.getDamage())
 
-	# Использование разделдения шаблонов
+	# Использование разделдения шаблона на снесколько частей
 	return render_template("Field.html")

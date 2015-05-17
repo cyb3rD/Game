@@ -1,168 +1,48 @@
 <!DOCTYPE html>
 <!-- using full width scalable background -->
 <html class= "full" lang="ru">
-<head>
-	<meta charset="utf-8">
-	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-	<!-- Заголовок стртаницы -->
-	<title>{{ title }}</title>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
-	<!--Style sheet for our game -->
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/game.css') }}">
-</head>
+{% include 'Head.html' %}
 <body>
 	<div id="page">
 	   <header  class="container">
 		<h4 align="center">Card Game Protoype</h4>
 	   </header>
 
-	   <section id="body"  class="container">
-		   
-		   <div class="row">
-		   <!-- (AI) Статус -->
-		   {% include 'Ai.html' %}
-		   <!-- (AI) Рука -->	
-		   {% include 'AiHand.html' %}
-		   </div>
-		   
-		   <!-- Player 1 Table -->
-		   <div class="row">
-		   	<section id="player1-table-info" class="col-xs-5" >
-		   		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
-		   		<p align="left">AiDeck</p>
-		   	</section>
-		   	<section id="Player1-game">
-			   	<div  class="col-xs-1">
-			   		
-			   		<img src="img/card_back.jpg">
-			   		<!-- Карта-1 соперника в игре-->
-			   		<p>AiTable_1</p>
-			   		<div class="input-group">	  					
-	  					<input type="text" class="form-control" aria-label="Health">
-  					</div>	
-			   	</div>
-			   	<div  class="col-xs-1">
-			   		
-			   		<img src="img/card_back.jpg">
-			   		<!-- Карта-2 соперника в игре-->
-			   		<p>AiTable_2</p>
-			   		<div class="input-group">	  					
-	  					<input type="text" class="form-control" aria-label="Health">
-  					</div>		
-			   	</div>
-			   	<div  class="col-xs-1">
-			   		<
-			   		<img src="img/card_back.jpg">
-			   		<!-- Карта-3 соперника в игре-->
-			   		<p>AiTable_3</p>
-			   		<div class="input-group">	  					
-	  					<input type="text" class="form-control" aria-label="Health">
-  					</div>		
-			   	</div>
-			 </section>
-			 <section id="Player1-addon-info" class ="col-xs-4">
-			 	
+		<section id="game"  class="container">
+			<!-- (AI) -->
+			<div class="row">
+				<!-- (AI) Статус -->
+				{% include 'Ai.html' %}
+				<!-- (AI) Рука -->
+				{% include 'AiHand.html' %}
+			</div>
+			<div class="row">
+				<!-- (AI) Стол -->
+		   		{% include 'AiTable.html' %}	
+				<section id="Player1-addon-info" class ="col-xs-4"></section>
+			</div>
 
-			 </section>
-			 </div>
-		   	<!-- Player 1 table END -->
+		   	<!-- USER -->
+			<div class="row">
+				<!-- (User) Стол -->
+				{% include 'UsrTable.html' %}	
 
+				<!-- Конец хода -->
+				<section id="UserEndTurn" class ="col-xs-4" align="center">
+			 		<button type="button" class="btn btn-info">Конец хода!</button>	
+				</section>
 
-		   	<!-- Player 2 - USER -->
-			<!-- Player 2 Table -->
-		   <div class="row">
-		   	<section id="player1-table-info" class="col-xs-5" >
-		   		<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
-		   		<p align="left">UsrDeck</p>
-		   	</section>
-		   	<section id="Player1-game">
-			   	<div  class="col-xs-1">
-			   		<img src="img/card_back.jpg">
-			   		<p>UsrTable_1</p>
-			   	</div>
-			   	<div  class="col-xs-1">
-			   		<img src="img/card_back.jpg">
-			   		<p>UsrTable_2</p>
-			   	</div>
-			   	<div  class="col-xs-1">
-			   		<img src="img/card_back.jpg">
-			   		<p>UsrTable_3</p>
-			   	</div>
-			 </section>
-
-			 <section id="Player2-addon-info" class ="col-xs-4" align="center">
-			 	<button type="button" class="btn btn-info">Конец хода!</button>	
-			 </section>
-			 </div>
-		   	<!-- Player 2 table END -->
-
-
-		   <!-- Player 2 Рука -->
-		   <div class="row">
-		   	<section id="player2-logo" class="col-xs-2" >
-		   		
-		   		<img class="player-logo" src="{{ url_for('static', filename='img/p2_avatar.png') }}">
-		   	</section>
-		   	
-		   	<section id="player2-info" class="col-xs-2" >
-		   		<p>Игрок(User)</p>
-		   		<!-- Состояние игрока (User)-->
-		   		<p>Coins:</p>
-		   		<p>Health:</p>
-		   		<p>Damage: {{damage}}</p>
-		   		<p>Defense:</p>
-		   	</section>
-		   	
-		   	<section id="player2-cards">
-		   		<div  class="col-xs-1">
-		   			<img src="img/card_back.jpg">
-		   			<p>UsrHand_1</p>
-		   			<!-- кнопки разыгрывания -->
-		   			<input type="submit" name="UserHandCard1" value="Разыграть">		
-		   		</div>
-		   		<div  class="col-xs-1">
-		   			<img src="img/card_back.jpg">
-		   			<p>UsrHand_2</p>
-		   			<!-- кнопки разыгрывания -->
-		   			<input type="submit" name="UserHandCard2" value="Разыграть">	
-		   		</div>
-		   		<div  class="col-xs-1">
-		   			<img src="img/card_back.jpg">
-		   			<p>UsrHand_3</p>
-		   			<!-- кнопки разыгрывания -->
-		   			<input type="submit" name="UserHandCard3" value="Разыграть">	
-		   		</div>
-		   		<div  class="col-xs-1">
-		   			<img src="img/card_back.jpg">
-		   			<p>UsrHand_4</p>
-		   			<!-- кнопки разыгрывания -->
-		   			<input type="submit" name="UserHandCard4" value="Разыграть">	
-		   		</div>
-		   		<div  class="col-xs-1">
-		   			<img src="img/card_back.jpg">
-		   			<p>UsrHand_5</p>
-		   			<!-- кнопки разыгрывания -->
-		   			<input type="submit" name="UserHandCard5" value="Разыграть">
-		   			<!-- прмер кнопки в стиле BootStrap
-		   			<button type="button" class="btn btn-info">Разыграть</button>	
-		   			прмер кнопки в стиле BootStrap -->
-		   		</div>
-		   		<div  class="col-xs-3">
-		   			<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
-		   			<p>СБРОС(Usr)</p>
-		   		</div>
-		   	<!-- player2-cards -->	
-		   	</section>
-		   	<!-- Player2 -->
-		   </div>
-		<!-- body -->
-	   </section>
-	   
-	   <footer  class="container">
-	   <hr/>
-	   	<p align='center'>&copy; Andrew&and;Antony&and;Nick Card Game Example</p>>
-	   </footer>
-	<!-- page -->
+			</div>
+			<div class="row">
+				<!-- (User) Статус -->
+				{% include 'Usr.html' %}
+				<!-- (User) Рука -->
+				{% include 'UsrHand.html'%}
+			</div>
+		<!-- section game -->
+		</section>
+		{% include 'Footer.html' %}   
+	<!-- div page -->
 	</div>
 	<!-- JQuery -->
 	<script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>

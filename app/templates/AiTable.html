@@ -1,5 +1,42 @@
-{% extends "Filed.html" %}
-{% block AiTable %}
+<!-- Ai Колода -->
+<section id="Ai-table-info" class="col-xs-5" >
+	<img src="{{ url_for('static', filename='img/card_back.jpg') }}">
+	<p align="left">AiDeck</p>
+</section>
 
-
-{% endblock %}
+<!-- Ai карты в игре (на столе) -->
+<section id="Ai-game">
+	<div  class="col-xs-1">
+		<!-- Ai Карта-1 в игре 
+		При начале игры карт на поле нет
+		-->
+		<img src="img/card_back.jpg">
+		<p>AiTable_1</p>
+		<!-- Область для записи распределения атаки -->
+		<div class="input-group">	  					
+			<input type="text" class="form-control" aria-label="Health">
+		</div>	
+	</div>
+	<div  class="col-xs-1">
+		<!-- Ai Карта-2 в игре 
+		При начале игры карт на поле нет
+		-->
+		<img src="img/card_back.jpg">
+		<p>AiTable_2</p>
+		<!-- Область для записи распределения атаки -->
+		<div class="input-group">	  					
+			<input type="text" class="form-control" aria-label="Health">
+		</div>		
+	</div>
+	<div  class="col-xs-1">
+		<!-- Ai Карта-3 в игре 
+		При начале игры карт на поле нет
+		-->
+		<img src="img/card_back.jpg">
+		<p>AiTable_3</p>
+		<!-- Область для записи распределения атаки -->
+		<div class="input-group">	  					
+			<input type="text" class="form-control" aria-label="Health">
+		</div>		
+	</div>
+</section>
